@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class Student {
@@ -8,8 +10,12 @@ public class Student {
     "Siyu Lei", "Sumid", "Tao", "Trivediakshay", "Yan Huang", "Zhaosai Tong"};
 
     public String randomStudent() {
-        int size = Roster.length;
         Random rand = new Random();
-        return Roster[rand.nextInt(size)];
+        ArrayList<String> rosterAL = new ArrayList<String>();
+        Collections.addAll(rosterAL, Roster);
+        int randIndex = rand.nextInt(rosterAL.size());
+        String name = rosterAL.get(randIndex);
+        rosterAL.remove(randIndex);
+        return name;
     }
 }
